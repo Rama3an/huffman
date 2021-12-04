@@ -103,6 +103,10 @@ fs.readFile(arg[2], (err, data) => {
 
     let finishtext = '';
     finishtext = treecodes + '\n' + codetext + '\n' + '\n' + decodetext;
+    
+    if (codetext.length == 0){
+        finishtext = `${text[0]}: '0'` + '\n' + '0'.repeat(text.length);
+    }
 
     fs.writeFile('txtforhuffman.txt', finishtext, (err) => {
         if (err){
